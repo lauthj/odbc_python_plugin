@@ -1,0 +1,16 @@
+{
+  "entries": [
+    {
+      "process_type": 29,
+      "group_name": "ODBC_Python_Demo_Plugin.odbc_python_demo",
+      "processes": [
+        {
+          "process_name": "python3.5",
+          "properties": {
+          }
+        }
+      ]
+    }
+  ]
+}
+
