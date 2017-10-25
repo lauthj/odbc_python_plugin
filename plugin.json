@@ -1,20 +1,19 @@
 {
   "name": "custom.python.odbc_python_plugin",
-  "version": "1.1",
+  "version": "1.10",
   "type": "python",
   "entity": "PROCESS_GROUP_INSTANCE",
   "processTypeNames": ["PYTHON"],
   "source": {
-    "package": "odbc_python_demo",
-    "className": "ODBCPluginDemo",
+    "package": "ODBC_demo_plugin",
+    "className": "ODBCDemoPlugin",
     "install_requires": ["requests>=2.6.0","pyodbc"],
     "activation": "Singleton"
   },
   "metrics": [
-    
     {
       "timeseries": {
-        "key": "records",
+        "key": "count",
         "unit": "Count"
       }
     }
