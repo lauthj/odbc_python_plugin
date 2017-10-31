@@ -39,6 +39,7 @@ def looper():
         time.sleep(3)
         
 def stats():
+    
     # Create the connection string
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=localhost\DEV;DATABASE=test;UID=test;PWD=odbctest')
 
@@ -46,7 +47,7 @@ def stats():
 
     # Execute a SQL Query
     cursor.execute("SELECT TOP 20 id FROM test order by 1 desc")
-
+   
     # Get the first row in the results
     return get_values(cursor)        
 
