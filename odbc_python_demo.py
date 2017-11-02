@@ -3,6 +3,7 @@ Created on Oct 19, 2017
 
 @author: lauthjo
 '''
+from nt import lstat
 '''
 Created on Oct 4, 2017
 
@@ -10,11 +11,10 @@ Created on Oct 4, 2017
 '''
 import pyodbc
 import argparse
-import requests
 import sys
 import time
 import bottle
-from symbol import decorated
+from statistics import mean
 
     
 # Parse the command line arguments passed to the app
@@ -37,6 +37,7 @@ def looper():
 
         # Sleep before re-running
         time.sleep(3)
+     
         
 def stats():
     
@@ -49,22 +50,18 @@ def stats():
     cursor.execute("SELECT TOP 20 id FROM test order by 1 desc")
    
     # Get the first row in the results
-    return get_values(cursor)        
+    return {"value": get_values(cursor,mean)}
 
 # Map values for the DB cursor
-def get_values(cursor):
+def get_values(cursor,fn):
     # Create initial values
-    mylist = {}
-    counter = 0
-
+    mylist = []
     # Loop through the cursor rows
     for row in cursor:
-        mylist[counter] = row.id
-        counter += 1
-
+        mylist.append(row.id)
     # Return the list
-    return mylist 
-
+    return fn(mylist)
+ 
 def main(cmd_args, default_port=8770):
     parser = create_args_parser(default_port=default_port)
     args = parser.parse_args(cmd_args)
