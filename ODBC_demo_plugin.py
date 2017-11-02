@@ -15,4 +15,4 @@ class ODBCDemoPlugin(BasePlugin):
         pgi_id = pgi.group_instance_id
         stats_url = "http://localhost:8770"
         stats = json.loads(requests.get(stats_url).content.decode())
-        self.results_builder.absolute(key='value', value=stats['5'], entity_id=pgi_id)
+        self.results_builder.absolute(key='value', value=stats['value'], entity_id=pgi_id)
