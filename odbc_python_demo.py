@@ -9,7 +9,11 @@ Created on Oct 4, 2017
 
 @author: lauthjo
 '''
-import pyodbc
+#import pyodbc
+try:
+    import pyodbc
+except ImportError:
+    import odbc as pyodbc 
 import argparse
 import sys
 import time
